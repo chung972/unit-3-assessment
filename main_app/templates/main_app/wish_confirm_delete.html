@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Delete Wish</h1>
+
+<h4>Are you sure you want to delete your wish of <font color="red">{{ wish.description }}</font>?</h4>
+
+<form action="" method="POST" class="pure-form">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="pure-button">
+    <a href="{% url 'wish_list' %}" class="pure-button">Cancel</a>
+
+</form>
+
+{% endblock %}

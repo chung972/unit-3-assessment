@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>Wish List (GET IT?!?!)</h1>
+
+{% if wish_list.count == 0 %}
+<h3>No wishes :(</h3>
+<hr>
+{% else %}
+<hr>
+<table class="pure-table pure-table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for wish in wish_list %}
+        <tr>
+            <td>{{ wish.description }}</td>
+            <td><a href="{% url 'wish_delete' wish.id %}">X</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+
+
+<form action="{% url 'wish_create' %}" class="pure-form">
+    <input class="pure-button" type="submit" value="Make a wish!">
+</form>
+
+
+{% endblock %}
