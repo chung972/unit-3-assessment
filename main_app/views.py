@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, DeleteView
 
 from .models import Wish
 
@@ -11,16 +11,7 @@ class WishList(ListView):
     model = Wish
 
 
-class WishDetail(DetailView):
-    model = Wish
-
-
 class WishCreate(CreateView):
-    model = Wish
-    fields = '__all__'
-
-
-class WishUpdate(UpdateView):
     model = Wish
     fields = '__all__'
 
